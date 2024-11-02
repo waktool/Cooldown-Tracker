@@ -13,7 +13,7 @@ const TIMER_DATA = [
     { rowId: 'row6', image: 'Assets/Cocoa_Cup.webp', item: 'Hot Cocoa', type: 'Buff', effect: 'Movement Speed', amount: '50%', duration: '5m' },
     { rowId: 'row7', image: 'Assets/Shiny_Apple.webp', item: 'Shiny Apple', type: 'Buff', effect: 'Pet Damage', amount: '2.25%', duration: '7m' },
     { rowId: 'row8', image: 'Assets/Shiny_Banana.webp', item: 'Shiny Banana', type: 'Buff', effect: 'Coin Boost', amount: '7.5%', duration: '7m' },
-    { rowId: 'row9', image: 'Assets/Shiny_Orange.webp', item: 'Shiny Orange', type: 'Buff', effect: 'Diamond Boost', amount: '1.5%', duration: '7m' },
+    { rowId: 'row9', image: 'Assets/Shiny_Orange.webp', item: 'Shiny Orange', type: 'Buff', effect: 'Diamonds Boost', amount: '1.5%', duration: '7m' },
     { rowId: 'row10', image: 'Assets/Shiny_Pineapple.webp', item: 'Shiny Pineapple', type: 'Buff', effect: 'Drop Boost', amount: '1.5%', duration: '7m' },
     { rowId: 'row11', image: 'Assets/Shiny_Watermelon.webp', item: 'Shiny Watermelon', type: 'Buff', effect: 'Bonus Boost', amount: '1.5%', duration: '7m' },
     { rowId: 'row12', image: 'Assets/Rainbow_Fruit.webp', item: 'Rainbow Fruit', type: 'Buff', effect: 'All Boosts Combined', amount: 'N/A', duration: '7m' },
@@ -33,12 +33,19 @@ const TIMER_DATA = [
 const ENCHANT_DATA = [
     { rowId: 'row1', image: 'Assets/Treasure_Hunter_X.webp', item: 'Treasure Hunter X', type: 'Empower', effect: 'Drop Chance', amount: '+22%', duration: '8h' },
     { rowId: 'row2', image: 'Assets/Speed_V.webp', item: 'Speed V', type: 'Empower', effect: 'Player & Pet Speed', amount: '+50%', duration: '8h' },
-    // Add more empower enchant items as needed
 ];
+
+const POTION_DATA = [
+    { rowId: 'row1', image: 'Assets/The_Cocktail.webp', item: 'The Cocktail', type: 'Empower', effect: 'Coin Boost<br>Diamonds Boost<br>Damage Boost<br>Egg Luck<br>Drop Chance<br>Player Speed', amount: '+200%<br>+50%<br>+100%<br>+300%<br>+100%<br>+50%', duration: '30m' },
+    { rowId: 'row2', image: 'Assets/Treasure_Hunter_Potion_XI.webp', item: 'Treasure Hunter Potion XI', type: 'Empower', effect: 'Drop Chance', amount: '+80%', duration: '110m' },
+    { rowId: 'row3', image: 'Assets/Damage_Potion_XI.webp', item: 'Damage Potion XI', type: 'Empower', effect: 'Pet Damage', amount: '+165%', duration: '110m' },
+];
+
 
 document.addEventListener('DOMContentLoaded', () => {
     populateTable(TIMER_DATA, 'timerTableBody');
     populateTable(ENCHANT_DATA, 'empowerEnchantTableBody'); // Populate the "Empower Enchant" table
+    populateTable(POTION_DATA, 'potionTableBody'); // Populate the "Empower Enchant" table
     makeHeadersSortable();
     loadTimers();
 });
@@ -68,11 +75,11 @@ function populateTable(dataArray, tableBodyId) {
         row.appendChild(typeCell);
 
         const effectCell = document.createElement('td');
-        effectCell.innerText = data.effect;
+        effectCell.innerHTML = data.effect;
         row.appendChild(effectCell);
 
         const amountCell = document.createElement('td');
-        amountCell.innerText = data.amount;
+        amountCell.innerHTML = data.amount;
         row.appendChild(amountCell);
 
         const durationCell = document.createElement('td');
@@ -210,7 +217,7 @@ function parseDuration(durationString) {
 }
 
 function loadTimers() {
-    const tables = ['timerTableBody', 'empowerEnchantTableBody']; // IDs of table bodies
+    const tables = ['timerTableBody', 'empowerEnchantTableBody', 'potionTableBody']; // IDs of table bodies
 
     tables.forEach(tableId => {
         const tableBody = document.getElementById(tableId);
