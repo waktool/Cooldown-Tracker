@@ -1,0 +1,23 @@
+.sortable-header {
+    position: relative;
+    text-align: center; /* Centers the text */
+    padding-right: 20px; /* Adds space for the icon */
+}
+
+.sort-icon {
+    position: absolute;
+    right: 5px; /* Positions the icon at the right edge */
+    top: 50%; /* Vertically centers the icon */
+    transform: translateY(-50%); /* Adjusts for perfect centering */
+    cursor: pointer;
+}
+
+.custom-table {
+    table-layout: auto; /* Allow the table to size based on content */
+    width: auto; /* Use the minimum width needed */
+    white-space: nowrap; /* Prevent table cells from wrapping text */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}

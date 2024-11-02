@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .countdown {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Timers</h1>
+    <table id="timerTable" class="custom-table">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th class="sortable-header">
+                    <span class="header-text">Item</span>
+                    <i class="fa-solid fa-sort-up sort-icon"></i>
+                </th>
+                <th class="sortable-header">
+                    <span class="header-text">Type</span>
+                    <i class="fa-solid fa-sort-up sort-icon"></i>
+                </th>
+                <th class="sortable-header">
+                    <span class="header-text">Effect</span>
+                    <i class="fa-solid fa-sort-up sort-icon"></i>
+                </th>
+                <th class="sortable-header">
+                    <span class="header-text">Amount</span>
+                    <i class="fa-solid fa-sort-up sort-icon"></i>
+                </th>
+                <th class="sortable-header">
+                    <span class="header-text">Duration</span>
+                    <i class="fa-solid fa-sort-up sort-icon"></i>
+                </th>
+                <th class="sortable-header">
+                    <span class="header-text">Expiry</span>
+                    <i class="fa-solid fa-sort-up sort-icon"></i>
+                </th>
+                <th class="sortable-header">
+                    <span class="header-text">Countdown</span>
+                    <i class="fa-solid fa-sort-up sort-icon"></i>
+                </th>
+                           
+                <th>Controls</th>
+            </tr>
+        </thead>
+        <tbody id="timerTableBody">
+            <!-- Rows will be populated by JavaScript -->
+        </tbody>
+    </table>
+
+    <h2>Empowering Enchants</h2>
+    <table id="empowerEnchantTable" class="custom-table">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Item</th>
+                <th>Type</th>
+                <th>Effect</th>
+                <th>Amount</th>
+                <th>Duration</th>
+                <th>Expiry</th>
+                <th>Countdown</th>
+                <th>Controls</th>
+            </tr>
+        </thead>
+        <tbody id="empowerEnchantTableBody">
+            <!-- Rows will be populated by JavaScript -->
+        </tbody>
+    </table>
+    
+
+    <script src="timer.js"></script>
+    <script src="https://kit.fontawesome.com/a1b9122272.js" crossorigin="anonymous"></script>
+</body>
+</html>
