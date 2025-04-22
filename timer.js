@@ -17,10 +17,6 @@ const EGG_LUCK_DATA = [
 
 document.addEventListener('DOMContentLoaded', () => {
     populateTable(EGG_LUCK_DATA, 'eggLuckTableBody');
-    populateTable(TIMER_DATA, 'timerTableBody');
-    populateTable(ENCHANT_DATA, 'empowerEnchantTableBody'); // Populate the "Empower Enchant" table
-    populateTable(POTION_DATA, 'potionTableBody'); // Populate the "Empower Enchant" table
-    makeHeadersSortable();
     loadTimers();
 });
 
