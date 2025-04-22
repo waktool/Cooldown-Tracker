@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,109 +29,41 @@
     </style>
 </head>
 <body>
-    <h1>Pet Simulator 99 Timers</h1>
+    <div class="header-container">
+        <img src="Assets/NONG.png" alt="NONG Logo" class="logo" />
+        <h1>NONG Cooldown Tracker</h1>        
+    </div>  
+    <p style="text-align:center; color:#ccc; margin-bottom: 30px;">
+        Track your cooldowns without checking in-game.<br>
+        Click <code>[+1]</code> to add time or <code>[Reset]</code> to clear.
+    </p>
 
-    <h2>Egg Luck</h2>
-    <table id="eggLuckTable" class="custom-table">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Item</th>
-                <th>Type</th>
-                <th>Effect</th>
-                <th>Amount</th>
-                <th>Duration</th>
-                <th>Expiry</th>
-                <th>Countdown</th>
-                <th>Controls</th>
-            </tr>
-        </thead>
-        <tbody id="eggLuckTableBody">
-            <!-- Rows will be populated by JavaScript -->
-        </tbody>
-    </table>
+    <div class="page-wrapper">
+        <h2>🥚 Egg Luck</h2>
 
-    <h2>Potions</h2>
-    <table id="potionTable" class="custom-table">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Item</th>
-                <th>Type</th>
-                <th>Effect</th>
-                <th>Amount</th>
-                <th>Duration</th>
-                <th>Expiry</th>
-                <th>Countdown</th>
-                <th>Controls</th>
-            </tr>
-        </thead>
-        <tbody id="potionTableBody">
-            <!-- Rows will be populated by JavaScript -->
-        </tbody>
-    </table>
+    
+        <table class="custom-table">
+            <table id="eggLuckTable" class="custom-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Item</th>
+                        <th>Type</th>
+                        <th colspan="2">Bonus</th> <!-- 👈 single header across two columns -->
+                        <th>Duration</th>
+                        <th>Expires</th>
+                        <th>Cooldown</th>
+                        <th>Controls</th>
+                    </tr>
+                </thead>
+                <tbody id="eggLuckTableBody">
+                    <!-- Rows will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </table>
+    </div>
+    
 
-    <h2>Empowering Enchants</h2>
-    <table id="empowerEnchantTable" class="custom-table">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Item</th>
-                <th>Type</th>
-                <th>Effect</th>
-                <th>Amount</th>
-                <th>Duration</th>
-                <th>Expiry</th>
-                <th>Countdown</th>
-                <th>Controls</th>
-            </tr>
-        </thead>
-        <tbody id="empowerEnchantTableBody">
-            <!-- Rows will be populated by JavaScript -->
-        </tbody>
-    </table>
-
-    <h2>Other</h2>
-    <table id="timerTable" class="custom-table">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th class="sortable-header">
-                    <span class="header-text">Item</span>
-                    <i class="fa-solid fa-sort-up sort-icon"></i>
-                </th>
-                <th class="sortable-header">
-                    <span class="header-text">Type</span>
-                    <i class="fa-solid fa-sort-up sort-icon"></i>
-                </th>
-                <th class="sortable-header">
-                    <span class="header-text">Effect</span>
-                    <i class="fa-solid fa-sort-up sort-icon"></i>
-                </th>
-                <th class="sortable-header">
-                    <span class="header-text">Amount</span>
-                    <i class="fa-solid fa-sort-up sort-icon"></i>
-                </th>
-                <th class="sortable-header">
-                    <span class="header-text">Duration</span>
-                    <i class="fa-solid fa-sort-up sort-icon"></i>
-                </th>
-                <th class="sortable-header">
-                    <span class="header-text">Expiry</span>
-                    <i class="fa-solid fa-sort-up sort-icon"></i>
-                </th>
-                <th class="sortable-header">
-                    <span class="header-text">Countdown</span>
-                    <i class="fa-solid fa-sort-up sort-icon"></i>
-                </th>
-                           
-                <th>Controls</th>
-            </tr>
-        </thead>
-        <tbody id="timerTableBody">
-            <!-- Rows will be populated by JavaScript -->
-        </tbody>
-    </table>
 
     <script src="timer.js"></script>
     <script src="https://kit.fontawesome.com/a1b9122272.js" crossorigin="anonymous"></script>

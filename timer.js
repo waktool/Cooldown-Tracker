@@ -6,54 +6,14 @@ const FIVE_MINUTES_IN_MS = 5 * 60 * 1000; // 5 minutes in milliseconds
 // Sample data array to populate the table
 
 const EGG_LUCK_DATA = [
-    { rowId: 'row1', image: 'Assets/The_Cocktail.webp', item: 'The Cocktail', type: 'Potion', effect: 'Coin Boost<br>Diamonds Boost<br>Damage Boost<br><strong>Egg Luck</strong><br>Drop Chance<br>Player Speed', amount: '+200%<br>+50%<br>+100%<br><strong>+300%</strong><br>+100%<br>+50%', duration: '30m' },
-    { rowId: 'row2', image: 'Assets/The_Cocktail_II.webp', item: 'The Cocktail II', type: 'Potion', effect: 'Coin Boost<br>Diamonds Boost<br>Damage Boost<br><strong>Egg Luck</strong><br>Drop Chance<br>Player Speed', amount: '+300%<br>+100%<br>+150%<br><strong>+400%</strong><br>+150%<br>+75%', duration: '30m' },
-    { rowId: 'row3', image: 'Assets/Lucky_Eggs_Potion_XI.webp', item: 'Lucky Eggs Potion XI', type: 'Potion', effect: '<strong>Egg Luck</strong>', amount: '<strong>+275%</strong>', duration: '110m' },
-    { rowId: 'row4', image: 'Assets/Glitched_Drive.webp', item: 'Glitched Drive', type: 'Buff', effect: 'Coin Boost<br>Diamonds Boost<br><strong>Egg Luck</strong>', amount: '+250%<br>+25%<br><strong>+400%</strong>', duration: '5m' },
-    { rowId: 'row5', image: 'Assets/Millionaire_Bucks.webp', item: 'Boost Exchange! Egg Luck', type: 'Boost', effect: '<strong>Egg Luck</strong>', amount: '<strong>+100%</strong>', duration: '1d' },
-    { rowId: 'row6', image: 'Assets/Lucky_Egg_Enchant_X.webp', item: 'Lucky Eggs X (Empowered)', type: 'Empower', effect: '<strong>Egg Luck</strong>', amount: '<strong>+40%</strong>', duration: '8h' },
-    { rowId: 'row7', image: 'Assets/Lucky_Easter_Egg.webp', item: 'Lucky Easter Egg', type: 'Boost', effect: '<strong>Egg Luck</strong>', amount: '<strong>+100%</strong>', duration: '12h' },
+    { rowId: 'row1', image: 'Assets/The_Cocktail.webp', item: 'The Cocktail', type: 'Potion', effect: 'Coin Boost<br>Diamonds Boost<br>Damage Boost<br>Egg Luck<br>Drop Chance<br>Player Speed', amount: '+200%<br>+50%<br>+100%<br><span class="gold">+300%</span><br>+100%<br>+50%', duration: '30m' },
+    { rowId: 'row2', image: 'Assets/The_Cocktail_II.webp', item: 'The Cocktail II', type: 'Potion', effect: 'Coin Boost<br>Diamonds Boost<br>Damage Boost<br>Egg Luck<br>Drop Chance<br>Player Speed', amount: '+300%<br>+100%<br>+150%<br><span class="gold">+400%</span><br>+150%<br>+75%', duration: '30m' },
+    { rowId: 'row3', image: 'Assets/Lucky_Eggs_Potion_XI.webp', item: 'Lucky Eggs Potion XI', type: 'Potion', effect: 'Egg Luck', amount: '<span class="gold">+275%</span>', duration: '110m' },
+    { rowId: 'row4', image: 'Assets/Glitched_Drive.webp', item: 'Glitched Drive', type: 'Buff', effect: 'Coin Boost<br>Diamonds Boost<br>Egg Luck', amount: '+250%<br>+25%<br><span class="gold">+400%</span>', duration: '5m' },
+    { rowId: 'row5', image: 'Assets/Millionaire_Bucks.webp', item: 'Boost Exchange! Egg Luck', type: 'Boost', effect: 'Egg Luck', amount: '<span class="gold">+100%</span>', duration: '1d' },
+    { rowId: 'row6', image: 'Assets/Lucky_Egg_Enchant_X.webp', item: 'Lucky Eggs X (Empowered)', type: 'Empower', effect: 'Egg Luck', amount: '<span class="gold">+40%</span>', duration: '8h' },
+    { rowId: 'row7', image: 'Assets/Lucky_Easter_Egg.webp', item: 'Lucky Easter Egg', type: 'Boost', effect: 'Egg Luck', amount: '<span class="gold">+100%</span>', duration: '12h' },
 ];
-
-const TIMER_DATA = [
-    { rowId: 'row1', image: 'Assets/Millionaire_Bucks.webp', item: 'Boost Exchange! Drop Chance', type: 'Boost', effect: 'Drop Chance', amount: '+15%', duration: '1d' },
-    { rowId: 'row2', image: 'Assets/Millionaire_Bucks.webp', item: 'Boost Exchange! Diamond', type: 'Boost', effect: 'Diamond Boost', amount: '+5%', duration: '1d' },
-    { rowId: 'row3', image: 'Assets/Millionaire_Bucks.webp', item: 'Boost Exchange! Egg Luck', type: 'Boost', effect: 'Egg Luck', amount: '+100%', duration: '1d' },
-    { rowId: 'row4', image: 'Assets/Candy_Cane.webp', item: 'Candy Cane', type: 'Buff', effect: 'Drops', amount: '2.25%', duration: '7m' },
-    { rowId: 'row5', image: 'Assets/Cookie.webp', item: 'Christmas Cookie', type: 'Buff', effect: 'Pet Attack Speed', amount: '10%', duration: '5m' },
-    { rowId: 'row6', image: 'Assets/Cocoa_Cup.webp', item: 'Hot Cocoa', type: 'Buff', effect: 'Movement Speed', amount: '50%', duration: '5m' },
-    { rowId: 'row7', image: 'Assets/Shiny_Apple.webp', item: 'Shiny Apple', type: 'Buff', effect: 'Pet Damage', amount: '2.25%', duration: '7m' },
-    { rowId: 'row8', image: 'Assets/Shiny_Banana.webp', item: 'Shiny Banana', type: 'Buff', effect: 'Coin Boost', amount: '7.5%', duration: '7m' },
-    { rowId: 'row9', image: 'Assets/Shiny_Orange.webp', item: 'Shiny Orange', type: 'Buff', effect: 'Diamonds Boost', amount: '1.5%', duration: '7m' },
-    { rowId: 'row10', image: 'Assets/Shiny_Pineapple.webp', item: 'Shiny Pineapple', type: 'Buff', effect: 'Drop Boost', amount: '1.5%', duration: '7m' },
-    { rowId: 'row11', image: 'Assets/Shiny_Watermelon.webp', item: 'Shiny Watermelon', type: 'Buff', effect: 'Bonus Boost', amount: '1.5%', duration: '7m' },
-    { rowId: 'row12', image: 'Assets/Rainbow_Fruit.webp', item: 'Rainbow Fruit', type: 'Buff', effect: 'All Boosts Combined', amount: 'N/A', duration: '7m' },
-    { rowId: 'row13', image: 'Assets/Squeaky_Toy.webp', item: 'Squeaky Toy', type: 'Buff', effect: 'Pet Attack Speed', amount: '25%', duration: '10m' },
-    { rowId: 'row14', image: 'Assets/Toy_Ball.webp', item: 'Toy Ball', type: 'Buff', effect: 'Pet Movement Speed', amount: '300%', duration: '5m' },
-    { rowId: 'row15', image: 'Assets/Toy_Bone.webp', item: 'Toy Bone', type: 'Buff', effect: 'Pet Attack Speed', amount: '10%', duration: '5m' },
-    { rowId: 'row16', image: 'Assets/Sprinkler.webp', item: 'Sprinkler', type: 'Boost', effect: 'Breakables Respawn Rate', amount: '50%', duration: '5m' },
-    { rowId: 'row17', image: 'Assets/Royality_Charm.webp', item: 'Royalty Charm', type: 'Charm', effect: 'Pet Damange', amount: '40%', duration: '' },
-    { rowId: 'row18', image: 'Assets/Strength_Charm.webp', item: 'Strength Charm', type: 'Charm', effect: 'Pet Damange', amount: '30%', duration: '' },
-    { rowId: 'row19', image: 'Assets/Agility_Charm.webp', item: 'Agility Charm', type: 'Charm', effect: 'Pet Speed', amount: '150%', duration: '' },
-    { rowId: 'row19', image: 'Assets/Bonus_Charm.webp', item: 'Bonus Charm', type: 'Charm', effect: 'Bonus Chance', amount: '35%', duration: '' },
-    { rowId: 'row20', image: 'Assets/Exotic_Treasure_Flag.webp', item: 'Exotic Treasure Flag', type: 'Flag', effect: 'Drop Chance', amount: '?%', duration: '5m' },
-    { rowId: 'row21', image: 'Assets/Strength_Flag.webp', item: 'Strength Flag', type: 'Flag', effect: 'Pet Strength', amount: '50%', duration: '5m' },
-    { rowId: 'row22', image: 'Assets/Hasty_Flag.webp', item: 'Hasty Flag', type: 'Flag', effect: 'Pet Attack & Movement Speed', amount: '?%', duration: '5m' },
-];
-
-const ENCHANT_DATA = [
-    { rowId: 'row1', image: 'Assets/Treasure_Hunter_X.webp', item: 'Treasure Hunter X', type: 'Empower', effect: 'Drop Chance', amount: '+22%', duration: '8h' },
-    { rowId: 'row2', image: 'Assets/Speed_V.webp', item: 'Speed V', type: 'Empower', effect: 'Player & Pet Speed', amount: '+50%', duration: '8h' },
-];
-
-const POTION_DATA = [
-    { rowId: 'row1', image: 'Assets/The_Cocktail.webp', item: 'The Cocktail', type: 'Potion', effect: 'Coin Boost<br>Diamonds Boost<br>Damage Boost<br>Egg Luck<br>Drop Chance<br>Player Speed', amount: '+200%<br>+50%<br>+100%<br>+300%<br>+100%<br>+50%', duration: '30m' },
-    { rowId: 'row2', image: 'Assets/Treasure_Hunter_Potion_XI.webp', item: 'Treasure Hunter Potion XI', type: 'Potion', effect: 'Drop Chance', amount: '+80%', duration: '110m' },
-    { rowId: 'row3', image: 'Assets/Damage_Potion_XI.webp', item: 'Damage Potion XI', type: 'Potion', effect: 'Pet Damage', amount: '+165%', duration: '110m' },
-];
-
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
     populateTable(EGG_LUCK_DATA, 'eggLuckTableBody');
@@ -76,7 +36,7 @@ function populateTable(dataArray, tableBodyId) {
         const img = document.createElement('img');
         img.src = data.image;
         img.alt = data.item;
-        img.style.width = '40px';
+        img.style.width = '70px';
         imageCell.appendChild(img);
         row.appendChild(imageCell);
 
@@ -88,13 +48,30 @@ function populateTable(dataArray, tableBodyId) {
         typeCell.innerText = data.type;
         row.appendChild(typeCell);
 
-        const effectCell = document.createElement('td');
-        effectCell.innerHTML = data.effect;
-        row.appendChild(effectCell);
-
-        const amountCell = document.createElement('td');
-        amountCell.innerHTML = data.amount;
-        row.appendChild(amountCell);
+        const bonusCell = document.createElement('td');
+        bonusCell.colSpan = 2;
+        
+        const effectParts = data.effect.split('<br>');
+        const amountParts = data.amount.split('<br>');
+        
+        let bonusTable = `
+          <table style="width: 100%; border-collapse: collapse; background: none;">
+        `;
+        
+        for (let i = 0; i < Math.max(effectParts.length, amountParts.length); i++) {
+            const effect = effectParts[i] || '';
+            const amount = amountParts[i] || '';
+            bonusTable += `
+              <tr style="background: none;">
+                <td style="padding: 0 8px; vertical-align: top; border: none; background: none;">${effect}</td>
+                <td style="padding: 0 8px; vertical-align: top; text-align: right; border: none; background: none;">${amount}</td>
+              </tr>
+            `;
+        }
+        
+        bonusTable += '</table>';
+        bonusCell.innerHTML = bonusTable;
+        row.appendChild(bonusCell);
 
         const durationCell = document.createElement('td');
         durationCell.classList.add('duration');
@@ -231,7 +208,7 @@ function parseDuration(durationString) {
 }
 
 function loadTimers() {
-    const tables = ['timerTableBody', 'empowerEnchantTableBody', 'potionTableBody', 'eggLuckTableBody'];
+    const tables = ['eggLuckTableBody'];
 
 
     tables.forEach(tableId => {
