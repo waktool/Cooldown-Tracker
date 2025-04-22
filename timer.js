@@ -36,13 +36,24 @@ const ENCHANT_DATA = [
 ];
 
 const POTION_DATA = [
-    { rowId: 'row1', image: 'Assets/The_Cocktail.webp', item: 'The Cocktail', type: 'Empower', effect: 'Coin Boost<br>Diamonds Boost<br>Damage Boost<br>Egg Luck<br>Drop Chance<br>Player Speed', amount: '+200%<br>+50%<br>+100%<br>+300%<br>+100%<br>+50%', duration: '30m' },
-    { rowId: 'row2', image: 'Assets/Treasure_Hunter_Potion_XI.webp', item: 'Treasure Hunter Potion XI', type: 'Empower', effect: 'Drop Chance', amount: '+80%', duration: '110m' },
-    { rowId: 'row3', image: 'Assets/Damage_Potion_XI.webp', item: 'Damage Potion XI', type: 'Empower', effect: 'Pet Damage', amount: '+165%', duration: '110m' },
+    { rowId: 'row1', image: 'Assets/The_Cocktail.webp', item: 'The Cocktail', type: 'Potion', effect: 'Coin Boost<br>Diamonds Boost<br>Damage Boost<br>Egg Luck<br>Drop Chance<br>Player Speed', amount: '+200%<br>+50%<br>+100%<br>+300%<br>+100%<br>+50%', duration: '30m' },
+    { rowId: 'row2', image: 'Assets/Treasure_Hunter_Potion_XI.webp', item: 'Treasure Hunter Potion XI', type: 'Potion', effect: 'Drop Chance', amount: '+80%', duration: '110m' },
+    { rowId: 'row3', image: 'Assets/Damage_Potion_XI.webp', item: 'Damage Potion XI', type: 'Potion', effect: 'Pet Damage', amount: '+165%', duration: '110m' },
+];
+
+const EGG_LUCK_DATA = [
+    { rowId: 'row1', image: 'Assets/The_Cocktail.webp', item: 'The Cocktail', type: 'Potion', effect: 'Coin Boost<br>Diamonds Boost<br>Damage Boost<br><strong>Egg Luck</strong><br>Drop Chance<br>Player Speed', amount: '+200%<br>+50%<br>+100%<br><strong>+300%</strong><br>+100%<br>+50%', duration: '30m' },
+    { rowId: 'row2', image: 'Assets/The_Cocktail_II.webp', item: 'The Cocktail II', type: 'Potion', effect: 'Coin Boost<br>Diamonds Boost<br>Damage Boost<br><strong>Egg Luck</strong><br>Drop Chance<br>Player Speed', amount: '+300%<br>+100%<br>+150%<br><strong>+400%</strong><br>+150%<br>+75%', duration: '30m' },
+    { rowId: 'row3', image: 'Assets/Lucky_Eggs_Potion_XI.webp', item: 'Lucky Eggs Potion XI', type: 'Potion', effect: '<strong>Egg Luck</strong>', amount: '<strong>+275%</strong>', duration: '110m' },
+    { rowId: 'row4', image: 'Assets/Glitched_Drive.webp', item: 'Glitched Drive', type: 'Buff', effect: 'Coin Boost<br>Diamonds Boost<br><strong>Egg Luck</strong>', amount: '+250%<br>+25%<br><strong>+400%</strong>', duration: '5m' },
+    { rowId: 'row5', image: 'Assets/Millionaire_Bucks.webp', item: 'Boost Exchange! Egg Luck', type: 'Boost', effect: '<strong>Egg Luck</strong>', amount: '<strong>+100%</strong>', duration: '1d' },
+    { rowId: 'row6', image: 'Assets/Lucky_Egg_Enchant_X.webp', item: 'Lucky Eggs X (Empowered)', type: 'Empower', effect: '<strong>Egg Luck</strong>', amount: '<strong>+40%</strong>', duration: '8h' },
+    { rowId: 'row7', image: 'Assets/Lucky_Easter_Egg.webp', item: 'Lucky Easter Egg', type: 'Boost', effect: '<strong>Egg Luck</strong>', amount: '<strong>+100%</strong>', duration: '12h' },
 ];
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    populateTable(EGG_LUCK_DATA, 'eggLuckTableBody');
     populateTable(TIMER_DATA, 'timerTableBody');
     populateTable(ENCHANT_DATA, 'empowerEnchantTableBody'); // Populate the "Empower Enchant" table
     populateTable(POTION_DATA, 'potionTableBody'); // Populate the "Empower Enchant" table
@@ -62,7 +73,7 @@ function populateTable(dataArray, tableBodyId) {
         const img = document.createElement('img');
         img.src = data.image;
         img.alt = data.item;
-        img.style.width = '25px';
+        img.style.width = '40px';
         imageCell.appendChild(img);
         row.appendChild(imageCell);
 
